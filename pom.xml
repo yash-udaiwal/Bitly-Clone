@@ -8,8 +8,8 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.url.shortner</groupId>
-	<artifactId>com.url.shortener</artifactId>
+	<groupId>com.url</groupId>
+	<artifactId>url.shortener</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>url.shortener</name>
 	<description>Bitly Clone Spring Boot Project</description>

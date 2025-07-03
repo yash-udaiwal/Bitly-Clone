@@ -18,7 +18,7 @@ public class UrlMapping {
     private LocalDateTime createdDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id") //means many url mapping can belong to one user // foreign key linking
     private User user;
 
     @OneToMany(mappedBy = "urlMapping")
