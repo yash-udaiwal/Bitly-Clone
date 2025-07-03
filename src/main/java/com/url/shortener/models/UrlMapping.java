@@ -1,26 +1,26 @@
-package com.url.url.shortener.models;
+package com.url.shortener.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Data
-public class URLMapping {
+public class UrlMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String originalUrl;
     private String shortUrl;
     private int clickCount = 0;
-    private LocalDate createdDate;
+    private LocalDateTime createdDate;
 
     @ManyToOne
-    @JoinColumn(name= "user_id")
-    private User user;  //means many url mapping can belong to one user // foreign key linking
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToMany(mappedBy = "urlMapping")
-    private List<ClickEvent> clickEvents;  //
+    private List<ClickEvent> clickEvents;
 }

@@ -1,7 +1,7 @@
-package com.url.url.shortener.service;
+package com.url.shortener.service;
 
-import com.url.url.shortener.models.User;
-import com.url.url.shortener.repository.UserRepository;
+import com.url.shortener.models.User;
+import com.url.shortener.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,9 +18,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: "+ username));
         return UserDetailsImpl.build(user);
     }
 }

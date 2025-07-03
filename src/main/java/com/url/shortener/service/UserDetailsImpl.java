@@ -1,6 +1,6 @@
-package com.url.url.shortener.service;
+package com.url.shortener.service;
 
-import com.url.url.shortener.models.User;
+import com.url.shortener.models.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,13 +13,12 @@ import java.util.Collections;
 @Data
 @NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
-    //its a bridge between out User class and spring security to validate a user
-
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private String username;
     private String email;
+
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
@@ -32,9 +31,7 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserDetailsImpl build(User user){
-        //this method converts our user object to spring security granted authority object.
-
+    public static UserDetailsImpl build(User user) {
         GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
         return new UserDetailsImpl(
                 user.getId(),
@@ -59,5 +56,4 @@ public class UserDetailsImpl implements UserDetails {
     public String getUsername() {
         return username;
     }
-
 }
